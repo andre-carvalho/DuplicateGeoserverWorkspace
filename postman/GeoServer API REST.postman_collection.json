@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "ea09a3e1-e5c0-4370-9a0e-bd047f382eb3",
+		"name": "GeoServer API REST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Featuretypes Recalculate nativebbox and latlonbbox",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "geoserver",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<featureType>\n  <name>cer_states</name>\n  <nativeName>cer_states</nativeName>\n  <namespace>\n    <name>cerh</name>\n    <atom:link xmlns:atom=\"http://www.w3.org/2005/Atom\" rel=\"alternate\" href=\"http://localhost/geoserver/rest/namespaces/cerh.xml\" type=\"application/xml\"/>\n  </namespace>\n  <title>cer_states</title>\n  <keywords>\n    <string>features</string>\n    <string>cer_states</string>\n  </keywords>\n  <nativeCRS>GEOGCS[&quot;SIRGAS 2000&quot;, \n  DATUM[&quot;Sistema de Referencia Geocentrico para las AmericaS 2000&quot;, \n    SPHEROID[&quot;GRS 1980&quot;, 6378137.0, 298.257222101, AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]], \n    TOWGS84[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \n    AUTHORITY[&quot;EPSG&quot;,&quot;6674&quot;]], \n  PRIMEM[&quot;Greenwich&quot;, 0.0, AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]], \n  UNIT[&quot;degree&quot;, 0.017453292519943295], \n  AXIS[&quot;Geodetic longitude&quot;, EAST], \n  AXIS[&quot;Geodetic latitude&quot;, NORTH], \n  AUTHORITY[&quot;EPSG&quot;,&quot;4674&quot;]]</nativeCRS>\n  <srs>EPSG:4674</srs>\n  <nativeBoundingBox>\n    <minx>-73.99040326067154</minx>\n    <maxx>-43.95182736291479</maxx>\n    <miny>-18.04176667000001</miny>\n    <maxy>5.271841077000005</maxy>\n    <crs>EPSG:4674</crs>\n  </nativeBoundingBox>\n  <latLonBoundingBox>\n    <minx>-73.99040326067154</minx>\n    <maxx>-43.95182736291479</maxx>\n    <miny>-18.04176667000001</miny>\n    <maxy>5.271841077000005</maxy>\n    <crs>EPSG:4326</crs>\n  </latLonBoundingBox>\n  <projectionPolicy>FORCE_DECLARED</projectionPolicy>\n  <enabled>true</enabled>\n  <advertised>true</advertised>\n  <metadata>\n    <entry key=\"JDBC_VIRTUAL_TABLE\">\n      <virtualTable>\n        <name>cer_states</name>\n        <sql>SELECT suid, nome, sigla, cod_ibge, geometry&#xd;\nFROM public.cer_states\n</sql>\n        <escapeSql>false</escapeSql>\n        <geometry>\n          <name>geometry</name>\n          <type>MultiPolygon</type>\n          <srid>4674</srid>\n        </geometry>\n      </virtualTable>\n    </entry>\n  </metadata>\n  <store class=\"dataStore\">\n    <name>cerh:CES</name>\n    <atom:link xmlns:atom=\"http://www.w3.org/2005/Atom\" rel=\"alternate\" href=\"http://localhost/geoserver/rest/workspaces/cerh/datastores/CES.xml\" type=\"application/xml\"/>\n  </store>\n  <serviceConfiguration>false</serviceConfiguration>\n  <maxFeatures>0</maxFeatures>\n  <numDecimals>0</numDecimals>\n  <padWithZeros>false</padWithZeros>\n  <forcedDecimal>false</forcedDecimal>\n  <overridingServiceSRS>false</overridingServiceSRS>\n  <skipNumberMatched>false</skipNumberMatched>\n  <circularArcPresent>false</circularArcPresent>\n  <attributes>\n    <attribute>\n      <name>suid</name>\n      <minOccurs>1</minOccurs>\n      <maxOccurs>1</maxOccurs>\n      <nillable>false</nillable>\n      <binding>java.lang.Integer</binding>\n    </attribute>\n    <attribute>\n      <name>nome</name>\n      <minOccurs>0</minOccurs>\n      <maxOccurs>1</maxOccurs>\n      <nillable>true</nillable>\n      <binding>java.lang.String</binding>\n    </attribute>\n    <attribute>\n      <name>sigla</name>\n      <minOccurs>0</minOccurs>\n      <maxOccurs>1</maxOccurs>\n      <nillable>true</nillable>\n      <binding>java.lang.String</binding>\n    </attribute>\n    <attribute>\n      <name>cod_ibge</name>\n      <minOccurs>0</minOccurs>\n      <maxOccurs>1</maxOccurs>\n      <nillable>true</nillable>\n      <binding>java.lang.String</binding>\n    </attribute>\n    <attribute>\n      <name>geometry</name>\n      <minOccurs>0</minOccurs>\n      <maxOccurs>1</maxOccurs>\n      <nillable>true</nillable>\n      <binding>org.locationtech.jts.geom.MultiPolygon</binding>\n    </attribute>\n  </attributes>\n</featureType>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/geoserver/rest/workspaces/cerh/datastores/CES/featuretypes/cer_states.xml?recalculate=nativebbox,latlonbbox",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"geoserver",
+						"rest",
+						"workspaces",
+						"cerh",
+						"datastores",
+						"CES",
+						"featuretypes",
+						"cer_states.xml"
+					],
+					"query": [
+						{
+							"key": "recalculate",
+							"value": "nativebbox,latlonbbox"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
